@@ -7,16 +7,26 @@
 </head>
 <body>
     <ol>
-        <li>JSX简单的理解就是可以在js中写html代码！JSX中可以在{ }中书写有效的js表达式。</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>JSX简单的理解就是可以在js中写html代码！JSX中可以在{ }中书写有效的js表达式。jsx可以当作变量进行使用。</li>
+        <li>JSX可以防止 XSS(cross site scripting) 注入攻击，React Dom会在渲染所有输入内容之前，对输入内容进行转义。</li>
+        <li>JSX实际上表示的是一个对象，Babel会把 JSX 转化成一个 React.creatElement() 的函数调用。参数包含jsx中的标签，属性，文本内容。</li>
+        <li>想要将React元素渲染到根节点中，只需要将react元素和根节点一起传入render()中。ReactDOM.render(element, document.getElementById('root'))。</li>
+        <li>react元素是不可变的，一旦创建就无法更改它的子元素和属性。更新UI的唯一方式就是创建一个全新的元素，并将它传入ReactDOM.render()中。</li>
+        <li>react只会更新更改的部分。</li>
+        <li>react中的函数组件等价于es6中的 class 写法。不同的是 class 写法中将函数组件中的所有参数都存到了一个叫 props 对象中，访问时必须用 this.props.name 访问传进来的name。</li>
+        <li>react中自定义组件必须以大写字母开头。因为react会将小写字母开头的标签视为原生dom标签。</li>
+        <li>建议组件从自身的角度出发进行命名，而不是依赖于组件的上下文命名。</li>
+        <li>所有的react组件都必须像纯函数那样保证自己的 props 不被修改。</li>
+        <li>react中 state 是私有的，完全受控于当前组件，state 只能通过 this.setState() 更新，这样组件才能知道 state 改变了。</li>
+        <li>class组件应该始终使用 super(props) 来调用父类的构造函数。</li>
+        <li>class 中每次组件更新时都会调用 render() 函数。</li>
+        <li>生命周期方式</li>
+        <ol>
+            <li>componentDidMount() 挂载  当组件渲染到 dom 中时触发。</li>
+            <li>componentWillUnmount() 卸载</li>
+            <li></li>
+        </ol>
+        <li>组件内部触发顺序： render() -> 生命周期</li>
     </ol>
 </body>
 </html>
