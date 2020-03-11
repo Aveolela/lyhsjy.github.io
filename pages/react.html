@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>重学react</title>
 </head>
-<body>
+<body style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
     <ul>
         <li>JSX简单的理解就是可以在js中写html代码！JSX中可以在{ }中书写有效的js表达式。jsx可以当作变量进行使用。</li>
         <li>JSX可以防止 XSS(cross site scripting) 注入攻击，React Dom会在渲染所有输入内容之前，对输入内容进行转义。</li>
@@ -21,7 +21,9 @@
         <ul>
             <li>state 只能通过 this.setState() 更新，这样组件才能知道 state 改变了。</li>
             <li>state 可能会异步更新。解决方法：可以让 setState() 接收一个函数而不是一个对象。这个函数用上一个 state 作为第一个参数，将此次更新被应用时的 props 做为第二个参数。</li>
-            <li>state 的更新会被合并。当你调用 this.setState() 时，react 会把你提供的对象合并到当前 state 中。</li>
+            <li>state 的更新会被合并。当你调用 this.setState() 时，react 会把你提供的对象合并(浅合并)到当前 state 中。</li>
+            <li>数据是向下流动的，不管父组件还是子组件都无法知道某个组件是有状态还是无状态的。</li>
+            <li>从组件 state 中派生出的任何数据或 UI 只能影响树中低于它们的组件。</li>
         </ul>
         <li>class组件应该始终使用 super(props) 来调用父类的构造函数。</li>
         <li>class 中每次组件更新时都会调用 render() 函数。</li>
@@ -32,6 +34,25 @@
             <li></li>
         </ul>
         <li>组件内部触发顺序： render() -> 生命周期</li>
+        <li>事件处理</li>
+        <ul>
+            <li>react事件名采用小驼峰命名法。而不是纯小写。</li>
+            <li>使用jsx时需要传入一个函数作为事件处理函数，而不是一个字符串。</li>
+            <li>react中不能通过 return false 来阻止默认行为，必须显示的使用 e.preventDefault() 。</li>
+            <li>react中，一般不使用 addEventListener 为已创建 DOM 添加监听事件。事实上，只需要在该元素初始渲染的时候添加监听器即可。</li>
+            <li>在回调函数中使用 this 时，最好用 bind 为函数绑定 this。因为在class中默认不会绑定 this 。通常情况，如果没有在方法后面添加 (),应该为该方法绑定 this。</li>
+            <li>class中另外两种绑定 this 的方法：</li>
+            <ul>
+                <li>使用实验中的 public class fields 语法：handleClick = () = { ... }。 creat-react-app 默认启用此方法。</li>
+                <li>在回调中使用回调函数。但该方法如果作为 props 传入子组件时，可能会导致额外的重新渲染。</li>
+                <li style="color: brown;">ps： 最好使用在构造器中绑定 this 或使用 class fields 方法。</li>
+            </ul>
+            <li>向事件处理程序传递参数</li>
+            <ul>
+                <li>onClick = {(e) = this.handle(id, e)}, 箭头函数中事件对象必须显式传递。</li>
+                <li>onClick = { this.handle.bind(this, id) }, bind 的方式会对事件对象及更多对象进行隐式传递。</li>
+            </ul>
+        </ul>
     </ul>
 </body>
 </html>
