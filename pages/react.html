@@ -31,9 +31,8 @@
         <ul>
             <li>componentDidMount() 挂载  当组件渲染到 dom 中时触发。</li>
             <li>componentWillUnmount() 卸载</li>
-            <li></li>
+            <li>组件内部触发顺序： render() -> 生命周期</li>
         </ul>
-        <li>组件内部触发顺序： render() -> 生命周期</li>
         <li>事件处理</li>
         <ul>
             <li>react事件名采用小驼峰命名法。而不是纯小写。</li>
@@ -53,6 +52,22 @@
                 <li>onClick = { this.handle.bind(this, id) }, bind 的方式会对事件对象及更多对象进行隐式传递。</li>
             </ul>
         </ul>
+        <li>条件渲染</li>
+        <ul>
+            <li>if 条件语句。</li>
+            <li>与运算符 &&。在 js 中，true && exp 返回的总是 exp， false && exp 返回的总是 false。</li>
+            <li>三目运算符。 condition ？ true ： false</li>
+            <li>阻止组件渲染。在极少数情况下，希望能隐藏组件，即使它已经被其他组件渲染。若要完成此操作，可以让 render 方法直接返回 null，而不进行任何渲染。</li>
+        </ul>
+        <li>列表&Key</li>
+        <ul>
+            <li>渲染多个组件---map()。</li>
+            <li>数组可以直接放到 { } 中进行渲染。</li>
+            <li>key 可以帮助 react 识别哪些元素改变了，比如添加或删除。因此必须给数组中的每一个元素赋予一个确定的标识。通常使用元素 id，没有的话使用元素索引 index。</li>
+            <li>如果列表项目的顺序可能会变化，不建议使用index，这样会导致性能变差，还可能会引起组件状态的变化。</li>
+            <li><a href="https://react.docschina.org/docs/reconciliation.html#recursing-on-children">深入解析 key 为什么是必须的</a></li>
+        </ul>
+        
     </ul>
 </body>
 </html>
