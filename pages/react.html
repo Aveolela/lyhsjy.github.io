@@ -19,6 +19,7 @@
         <li>所有的react组件都必须像纯函数那样保证自己的 props 不被修改。</li>
         <li>react中 state 是私有的，完全受控于当前组件</li>
         <ul>
+            <li><a href="https://www.jianshu.com/p/799b8a14ef96">React 中setState更新state何时同步何时异步？</a></li>
             <li>state 只能通过 this.setState() 更新，这样组件才能知道 state 改变了。</li>
             <li>state 可能会异步更新。解决方法：可以让 setState() 接收一个函数而不是一个对象。这个函数用上一个 state 作为第一个参数，将此次更新被应用时的 props 做为第二个参数。</li>
             <li>state 的更新会被合并。当你调用 this.setState() 时，react 会把你提供的对象合并(浅合并)到当前 state 中。</li>
@@ -43,7 +44,7 @@
             <li>class中另外两种绑定 this 的方法：</li>
             <ul>
                 <li>使用实验中的 public class fields 语法：handleClick = () = { ... }。 creat-react-app 默认启用此方法。</li>
-                <li>在回调中使用回调函数。但该方法如果作为 props 传入子组件时，可能会导致额外的重新渲染。</li>
+                <li>在回调中使用箭头函数。但该方法如果作为 props 传入子组件时，可能会导致额外的重新渲染。</li>
                 <li style="color: brown;">ps： 最好使用在构造器中绑定 this 或使用 class fields 方法。</li>
             </ul>
             <li>向事件处理程序传递参数</li>
