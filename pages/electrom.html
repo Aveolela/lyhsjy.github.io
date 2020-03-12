@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>electron</title>
+    <title>初学electron</title>
 </head>
-<body>
-    
+
+<body style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;line-height: 2rem;">
+    <ul>
+        <h3>Electorn 简介</h3>
+        <ul>
+            <li>Electorn 分为 主进程 和 渲染进程。</li>
+            <ul>
+                <li>主进程类似于普通的 node 脚本。</li>
+                <li>渲染进程除了和传统的 web 界面类似外，还具备使用 node 模块的能力。</li>
+            </ul>
+            <li>所有的 Node 自身模块和第三方模块都可以在 Electorn 中使用。</li>
+            <li>除此之外，Electorn 还有自身的一些组件来开发传统桌面应用。一部分只用于主进程，一部分只用于渲染进程，一部分两者皆可用。</li>
+            <li style="color: brown;">PS： GUI模块 和 系统底层模块 只能在主进程中使用。</li>
+        </ul>
+        <h3>Electorn 快速入门</h3>
+        <ul>
+            <li>简介</li>
+            <ul>
+                <li>Electorn 使用 web 作为它的 GUI，可以把它看作是一个被 JavaScript 控制的精简版的 Chromium 浏览器。</li>
+            </ul>
+            <li>主进程</li>
+            <ul>
+                <li>只有一个！！！</li>
+                <li>运行 package.json 文件中 mian 脚本的进程称为主进程。主进程中可以以创建 web 页面的形式来创建 GUI。</li>
+            </ul>
+            <li>渲染进程</li>
+            <ul>
+                <li>每个页面是一个进程。Electorn 拥有一般浏览器不能访问底层 APIs 的能力。</li>
+            </ul>
+            <li>主进程与渲染进程的区别</li>
+            <ul>
+                <li>主进程使用 BrowserWindow 实例创建页面。每个 BrowserWindow 实例都在自己的渲染进程中运行着一个网页。当一个实例被销毁后，相应的渲染进程也会终止。</li>
+                <li>主进程管理所有页面和与之对应的渲染进程。渲染进程之间都是相会独立的，各自只在乎各自的网页。</li>
+                <li>网页里面调用原生 GUI 相关的 APIs 容易造成资源泄露，需要渲染进程与主进程进行通讯，通过主进程去请求相应的 APIs。通讯方式有：</li>
+                <ul>
+                    <li>主进程与渲染进程之间的通讯模块 ipc</li>
+                    <li>远程进程调用风格的通讯模块 remote</li>
+                </ul>
+            </ul>
+        </ul>
+
+    </ul>
 </body>
+
 </html>
