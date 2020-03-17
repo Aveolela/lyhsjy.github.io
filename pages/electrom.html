@@ -41,9 +41,13 @@
                 <li>主进程管理所有页面和与之对应的渲染进程。渲染进程之间都是相会独立的，各自只在乎各自的网页。</li>
                 <li>网页里面调用原生 GUI 相关的 APIs 容易造成资源泄露，需要渲染进程与主进程进行通讯，通过主进程去请求相应的 APIs。通讯方式有：</li>
                 <ul>
-                    <li>主进程与渲染进程之间的通讯模块 ipc</li>
-                    <li>远程进程调用风格的通讯模块 remote</li>
+                    <li>主进程与渲染进程之间的通讯模块 ipc。主进程中使用 ipcMain.send() 和 ipcMain.on() 发送和监听事件。渲染进程中使用 ipcRenderer.send() 和 ipcRenderer.on() 发送和监听事件。</li>
+                    <li>远程进程调用风格的通讯模块 remote。remote 屏蔽了内部进程之间的通讯</li>
                 </ul>
+            </ul>
+            <li>Electron 模块</li>
+            <ul>
+                <li><a href="https://www.w3cschool.cn/electronmanual/electronmanual-electronapp.html">w3school文档</a></li>
             </ul>
         </ul>
 
