@@ -109,6 +109,14 @@
             </ul>
             <li>添加反向数据流---处于较低层级的<b>表单组件</b>更新较高层级组件中的 state。要实现该功能必须高层级组件向低层级组件传递一个回调函数，该函数功能可以更改高层级组件中的 state。</li>
         </ul>
+        <li>代码分割</li>
+        <ul>
+            <li> 代码分割是由诸如 Webpack，Rollup 和 Browserify（factor-bundle）这类打包器支持的一项技术，能够创建多个包并在运行时动态加载。</li>
+            <li>import() 动态引入 - import('./math').then(math => { math.add(1,2) })</li>
+            <li>React.lazy() 函数能让你像渲染常规组件一样处理动态引入（的组件），可进行懒加载。目前它和 Suspense 技术 不支持服务端渲染。--- const OtherComponent = React.lazy(() => import('./OtherComponent'));</li>
+            <li>基于路由的代码分割</li>
+        </ul>
+        <li>Context - 不用通过props层层传递，提供了一种组件之间共享此类值的方式。</li>
     </ul>
 </body>
 

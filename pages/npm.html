@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>npm</title>
+</head>
+<body>
+    <ul>
+        <li>--save-dev 和 --save 的区别</li>
+        <ul>
+            <li>表面上的区别是–-save 会把依赖包名称添加到 package.json 文件 dependencies 键下，-–save-dev 则添加到 package.json 文件 devDependencies 键下。</li>
+            <li>真正的区别是，devDependencies 下列出的模块，是我们开发时用的;dependencies 下的模块，则是我们发布后还需要依赖的模块。</li>
+            <li>正常使用npm install时，会下载dependencies和devDependencies中的模块，当使用npm install –production或者注明NODE_ENV变量值为production时，只会下载dependencies中的模块。</li>
+        </ul>
+    </ul>
+</body>
+</html>
